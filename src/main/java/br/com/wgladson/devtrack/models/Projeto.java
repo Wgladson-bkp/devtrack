@@ -55,7 +55,7 @@ public class Projeto {
     public Projeto() {
     }
 
-    
+
 
     public Long getIdProjeto() {
         return idProjeto;
