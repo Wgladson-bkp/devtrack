@@ -1,4 +1,5 @@
 package br.com.wgladson.devtrack.models;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -54,8 +55,6 @@ public class Projeto {
 
     public Projeto() {
     }
-
-
 
     public Long getIdProjeto() {
         return idProjeto;
