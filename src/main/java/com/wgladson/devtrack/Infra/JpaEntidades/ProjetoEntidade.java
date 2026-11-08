@@ -1,19 +1,17 @@
 package com.wgladson.devtrack.Infra.JpaEntidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.wgladson.devtrack.Dominio.Modelo.Projeto;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "projeto")
-public class Projeto {
+public class ProjetoEntidade {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_projeto", nullable = false)
     private Long idProjeto;
 
@@ -29,7 +27,7 @@ public class Projeto {
     @Column(name = "prazo")
     private LocalDate prazo;
 
-    @Column(name = "id_status", nullable = false)
+    @Column(name = "id_status")
     private Long idStatus;
 
     @Column(name = "prioridade")
@@ -38,13 +36,13 @@ public class Projeto {
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "gerente_tec", nullable = false)
+    @Column(name = "gerente_tec")
     private Long gerenteTec;
 
-    @Column(name = "criado_por", nullable = false)
+    @Column(name = "criado_por")
     private Long criadoPor;
 
-    @Column(name = "criado_em", nullable = false)
+    @Column(name = "criado_em")
     private OffsetDateTime criadoEm;
 
     @Column(name = "atualizado_em")
@@ -59,10 +57,26 @@ public class Projeto {
     @Column(name = "equipe", length = 100)
     private String equipe;
 
-    @Column(name = "gerente_op", nullable = false)
+    @Column(name = "gerente_op")
     private Long gerenteOp;
 
-    public Projeto() {
+    public ProjetoEntidade(Projeto projeto) {
+        this.nomeProjeto = projeto.getNomeProjeto();
+        this.codinome = projeto.getCodinome();
+        this.referencia = projeto.getReferencia();
+        this.prazo = projeto.getPrazo();
+        this.prioridade = projeto.getPrioridade();
+        this.descricao = projeto.getDescricao();
+        this.gerenteTec = projeto.getGerenteTec();
+        this.criadoPor = projeto.getCriadoPor();
+        this.atualizadoEm = projeto.getAtualizadoEm();
+        this.finalizadoEm = projeto.getFinalizadoEm();
+        this.areaDepartamento = projeto.getAreaDepartamento();
+        this.equipe = projeto.getEquipe();
+        this.gerenteOp = projeto.getGerenteOp();
+    }
+
+    public ProjetoEntidade() {
     }
 
     public Long getIdProjeto() {
